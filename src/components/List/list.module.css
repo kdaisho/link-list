@@ -1,0 +1,32 @@
+.button {
+  background: #2196f3;
+  color: #fff;
+  height: 3rem;
+  width: 100%;
+}
+
+.clear {
+  background: #e91e63;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.copy {
+  background: #8bc34a;
+}
+
+.form {
+  display: block;
+  padding-bottom: 3rem;
+}
+
+.each {
+  margin: 2rem 0;
+}
+
+.textarea {
+  display: block;
+  height: 100px;
+  width: 100%;
+  padding: 1rem;
+}
