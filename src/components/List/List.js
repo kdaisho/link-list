@@ -6,7 +6,7 @@ const List = () => {
   const [encodeValue, setEncodeValue] = useState('')
   const [decodeValue, setDecodeValue] = useState('')
   const [encoded, setEncoded] = useState('')
-  const [decoded, setDecoded] = useState('')
+  const [decoded, __] = useState('')
   const [decodedList, setDecodedList] = useState([])
   const [_, setCopied] = useState({ copied: false })
 
@@ -18,13 +18,18 @@ const List = () => {
 
   const decode = event => {
     event.preventDefault()
+
+    let linkArray = decodeValue.split(/\r?\n/)
+    console.log('before cleanup', { linkArray })
+
+    linkArray = linkArray.filter(link => link.startsWith('aHR0cH'))
+    console.log('after cleanup', { linkArray })
+
     try {
-      const decoded = window.atob(decodeValue)
-      setDecoded(decoded)
-      const list = [...decodedList, decoded]
-      setDecodedList(list)
+      const listUrl = linkArray.map(value => window.atob(value))
+      setDecodedList(listUrl)
     } catch (err) {
-      console.error(err)
+      console.error('failed decoding', err)
     }
   }
 
